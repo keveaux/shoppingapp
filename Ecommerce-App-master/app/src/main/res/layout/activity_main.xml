@@ -1,0 +1,128 @@
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer_layout" >
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:fitsSystemWindows="true">
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:expandedTitleMarginStart="40dp"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@color/colorPrimary"
+                    app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
+                    app:layout_collapseMode="parallax"
+                    />
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"
+                    >
+                    <TextView
+                        android:id="@+id/tp_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/txt22"
+                        android:text="Amazin"
+                        android:textStyle="bold"
+                        android:textColor="@color/textLabelDark"
+                        android:layout_gravity="center_horizontal"
+                        />
+
+                </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs_loan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                app:layout_scrollFlags="scroll"
+                app:tabMode="scrollable"
+                app:tabTextColor="@color/textHint"
+                app:tabSelectedTextColor="@color/textLabelDark"
+                app:tabIndicatorColor="@color/colorPrimary"
+                app:tabGravity="fill">
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="All"
+                    />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Brands"
+                    />
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Trends"
+                    />
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Women"
+                    />
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bags"
+                    />
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Shoes"
+                    />
+            </com.google.android.material.tabs.TabLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+        <LinearLayout
+            android:id="@+id/ll_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:background="@color/backgroundColor"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:orientation="vertical">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                />
+        </LinearLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            app:elevation="8dp"
+            app:backgroundTint="@color/colorAccent"
+            app:srcCompat="@drawable/ic_shopping_cart_black_24dp"
+            app:layout_anchor="@+id/ll_layout"
+            app:layout_anchorGravity="bottom|right|end" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start" />
+</androidx.drawerlayout.widget.DrawerLayout>
